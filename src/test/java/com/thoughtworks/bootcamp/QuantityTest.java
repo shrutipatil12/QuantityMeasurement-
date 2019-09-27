@@ -18,4 +18,10 @@ public class QuantityTest {
 
         assertTrue(zeroInch.compare(zeroInch));
     }
+    @Test
+    void givenOneInch_WhenCompare_ThenShouldReturnSame() {
+        Quantity oneInch = new Quantity(1);
+
+        assertTrue(oneInch.compare(oneInch));
+    }
 }
