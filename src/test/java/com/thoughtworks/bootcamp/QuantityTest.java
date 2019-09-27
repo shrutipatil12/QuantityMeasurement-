@@ -13,13 +13,6 @@ public class QuantityTest {
         assertTrue(zeroInch.equals(anotherZeroInch));
     }
 
-    @Test
-    void givenZeroInch_WhenEquals_ThenShouldReturnEqual() {
-        Quantity zeroInch = new Quantity(0);
-        Quantity anotherZeroInch = new Quantity(0);
-
-        assertTrue(zeroInch.equals(anotherZeroInch));
-    }
 
     @Test
     void givenOneInch_WhenEquals_ThenShouldReturnEqual() {
@@ -29,7 +22,6 @@ public class QuantityTest {
 
         assertTrue(oneInch.equals(anotherOneInch));
     }
-
 
     @Test
     void givenZeroInchAndSomethingElse_WhenEquals_ThenShouldNotReturnNotEqual() {
@@ -44,5 +36,14 @@ public class QuantityTest {
 
         assertFalse(oneInch.equals(null));
     }
+
+    @Test
+    void givenZeroInchAndOneInch_WhenEquals_ThenShouldReturnEqual() {
+        Quantity zeroInch = new Quantity(0);
+        Quantity OneInch = new Quantity(1);
+
+        assertFalse(zeroInch.equals(OneInch));
+    }
+
 
 }
