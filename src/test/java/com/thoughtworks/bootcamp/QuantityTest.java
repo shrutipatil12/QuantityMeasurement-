@@ -12,4 +12,10 @@ public class QuantityTest {
         assertTrue(zeroFeet.compare(zeroFeet));
     }
 
+    @Test
+    void givenZeroInch_WhenCompare_ThenShouldReturnSame() {
+        Quantity zeroInch = new Quantity(0);
+
+        assertTrue(zeroInch.compare(zeroInch));
+    }
 }
