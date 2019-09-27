@@ -6,31 +6,36 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityTest {
     @Test
-    void givenZeroFeet_WhenEquals_ThenShouldReturnEqual() {
-        Quantity zeroFeet = new Quantity(0);
+    void givenZeroInchAndAnotherZeroInch_WhenEquals_ThenShouldReturnEqual() {
+        Quantity zeroInch = new Quantity(0);
+        Quantity anotherZeroInch = new Quantity(0);
 
-        assertTrue(zeroFeet.equals(zeroFeet));
+        assertTrue(zeroInch.equals(anotherZeroInch));
     }
 
     @Test
     void givenZeroInch_WhenEquals_ThenShouldReturnEqual() {
         Quantity zeroInch = new Quantity(0);
+        Quantity anotherZeroInch = new Quantity(0);
 
-        assertTrue(zeroInch.equals(zeroInch));
+        assertTrue(zeroInch.equals(anotherZeroInch));
     }
+
     @Test
     void givenOneInch_WhenEquals_ThenShouldReturnEqual() {
         Quantity oneInch = new Quantity(1);
+        Quantity anotherOneInch = new Quantity(1);
 
-        assertTrue(oneInch.equals(oneInch));
+
+        assertTrue(oneInch.equals(anotherOneInch));
     }
 
-    @Test
-    void givenZeroFeetAndOneInch_WhenEquals_ThenShouldNotReturnNotEqual() {
-        Quantity oneInch = new Quantity(1);
-        Quantity twoInch = new Quantity(2);
 
-        assertFalse(oneInch.equals(twoInch));
+    @Test
+    void givenZeroInchAndSomethingElse_WhenEquals_ThenShouldNotReturnNotEqual() {
+        Quantity oneInch = new Quantity(1);
+
+        assertFalse(oneInch.equals(new Object()));
     }
 
 }
