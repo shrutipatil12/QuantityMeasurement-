@@ -38,4 +38,11 @@ public class QuantityTest {
         assertFalse(oneInch.equals(new Object()));
     }
 
+    @Test
+    void givenZeroInchAndNull_WhenEquals_ThenShouldNotReturnNotEqual() {
+        Quantity oneInch = new Quantity(1);
+
+        assertFalse(oneInch.equals(null));
+    }
+
 }
