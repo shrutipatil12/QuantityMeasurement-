@@ -4,12 +4,18 @@ public class Quantity {
 
     final int value;
 
+
     public Quantity(int value) {
         this.value = value;
 
     }
 
-    public boolean compare(Quantity quantity) {
-        return (this.value == quantity.value);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Quantity)) return false;
+        Quantity quantity = (Quantity) o;
+        return value == quantity.value;
     }
+
 }
