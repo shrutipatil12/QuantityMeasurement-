@@ -1,7 +1,15 @@
 package com.thoughtworks.bootcamp;
 
 public class Quantity {
-    public int compare() {
-        return 0;
+
+    final int value;
+
+    public Quantity(int value) {
+        this.value = value;
+
+    }
+
+    public boolean compare(Quantity quantity) {
+        return (this.value == quantity.value);
     }
 }
