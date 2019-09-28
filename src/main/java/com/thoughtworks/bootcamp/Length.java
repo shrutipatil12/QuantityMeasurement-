@@ -23,7 +23,7 @@ public class Length {
         }
         if (object instanceof Length) {
             Length otherLength = (Length) object;
-            if (otherLength.value == TWELVE * value) {
+            if (otherLength.value == TWELVE * value && otherLength.unit.equals(Unit.inch)) {
                 return true;
             }
 
