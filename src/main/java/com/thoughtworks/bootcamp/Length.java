@@ -3,15 +3,25 @@ package com.thoughtworks.bootcamp;
 
 public class Length {
 
-    private int value;
+    private double value;
     private Unit unit;
     private static final int TWELVE = 12;
 
     enum Unit {
-        feet, inch;
+        feet(12), inch(1), cm(1 / 2.54);
+        private final double converter;
+
+        Unit(double converter) {
+            this.converter = converter;
+        }
+
+        public double convertToBase(double value) {
+
+            return value * converter;
+        }
     }
 
-    public Length(int value, Unit unit) {
+    public Length(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
@@ -23,27 +33,11 @@ public class Length {
         }
         if (object instanceof Length) {
             Length otherLength = (Length) object;
-            if (otherLength.value == convertToInch(value) && otherLength.unit.equals(Unit.inch)) {
-                return true;
-            }
-            if (value == convertToInch(otherLength) && otherLength.unit.equals(Unit.feet) ) {
-                return true;
-            }
 
-            return equalsIfUnitsAreSame(otherLength);
+            return Math.abs(this.unit.convertToBase(this.value) - otherLength.unit.convertToBase(otherLength.value)) <= 0.01;
+
         }
         return false;
     }
 
-    private int convertToInch(int other) {
-        return other * 12;
-    }
-
-    private int convertToInch(Length otherLength) {
-        return otherLength.value * 12;
-    }
-
-    private boolean equalsIfUnitsAreSame(Length otherLength) {
-        return this.value == otherLength.value && this.unit == otherLength.unit;
-    }
 }

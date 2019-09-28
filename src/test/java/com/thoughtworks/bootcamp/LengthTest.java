@@ -78,9 +78,27 @@ public class LengthTest {
 
     @Test
     void givenTwelveInchAndOneFeet_WhenEquals_TheyShouldBeEqual() {
-        Length oneFeet = new Length(1, Length.Unit.feet);
-        Length twelveInch = new Length(12, Length.Unit.inch);
+        Length oneFeet = new Length(1.0, Length.Unit.inch);
+        Length twelveInch = new Length(2.54, Length.Unit.cm);
 
-        assertTrue(twelveInch.equals(oneFeet));
+        assertTrue(oneFeet.equals(twelveInch));
+    }
+
+    @Test
+    void givenTwoFiftyFourCM_WhenConvertsToInch_ThenItShouldConvert() {
+
+        assertEquals(1, Length.Unit.cm.convertToBase(2.54), 0.01);
+    }
+
+    @Test
+    void givenOneFeet_WhenConvertsToInch_ThenItShouldConvert() {
+
+        assertEquals(12, Length.Unit.feet.convertToBase(1));
+    }
+
+    @Test
+    void givenOneInch_WhenConvertsToInch_ThenItShouldConvert() {
+
+        assertEquals(1, Length.Unit.inch.convertToBase(1));
     }
 }
