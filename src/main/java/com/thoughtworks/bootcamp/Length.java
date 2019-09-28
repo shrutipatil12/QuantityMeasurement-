@@ -27,8 +27,12 @@ public class Length {
                 return true;
             }
 
-            return this.value == otherLength.value && this.unit == otherLength.unit;
+            return equalsIfUnitsAreSame(otherLength);
         }
         return false;
+    }
+
+    private boolean equalsIfUnitsAreSame(Length otherLength) {
+        return this.value == otherLength.value && this.unit == otherLength.unit;
     }
 }
