@@ -16,9 +16,16 @@ public class InchTest {
     }
 
     @Test
-    void givenZeroInchAndSomethingElse_WhenEquals_ThenShouldNotReturnNotEqual() {
+    void givenZeroInchAndSomethingElse_WhenEquals_ThenShouldNotReturnEqual() {
         Inch oneInch = new Inch(1);
 
         assertFalse(oneInch.equals(new Object()));
+    }
+
+    @Test
+    void givenZeroInchAndNull_WhenEquals_ThenShouldNotReturnEqual() {
+        Inch oneInch = new Inch(1);
+
+        assertFalse(oneInch.equals(null));
     }
 }
