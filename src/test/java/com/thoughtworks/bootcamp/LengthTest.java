@@ -6,21 +6,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LengthTest {
     @Test
-    void givenZeroFootAndAnotherZeroFoot_WhenEquals_ThenShouldReturnEqual() {
-        Length zeroFoot = new Length(0, Length.Unit.feet);
-        Length anotherZeroFoot = new Length(0, Length.Unit.feet);
+    void givenZeroFeettAndAnotherZeroFeet_WhenEquals_ThenShouldReturnEqual() {
+        Length zeroFeet = new Length(0, Length.Unit.feet);
+        Length anotherZeroFeet = new Length(0, Length.Unit.feet);
 
-        assertTrue(zeroFoot.equals(anotherZeroFoot));
+        assertTrue(zeroFeet.equals(anotherZeroFeet));
     }
 
 
     @Test
-    void givenOneFootAndAnotherZeroFoot_WhenEquals_ThenShouldReturnNotEqual() {
-        Length oneFoot = new Length(1, Length.Unit.feet);
+    void givenOneFeetAndAnotherZeroFeet_WhenEquals_ThenShouldReturnNotEqual() {
+        Length oneFeet = new Length(1, Length.Unit.feet);
         Length anotherZeroFoot = new Length(0, Length.Unit.feet);
 
 
-        assertFalse(oneFoot.equals(anotherZeroFoot));
+        assertFalse(oneFeet.equals(anotherZeroFoot));
     }
 
     @Test
@@ -52,12 +52,28 @@ public class LengthTest {
     }
 
     @Test
-    void givenZeroFootAndOneInch_WhenEquals_ThenShouldReturnNotEqual() {
+    void givenZeroFeetAndZeroInch_WhenEquals_ThenShouldReturnEqual() {
+
+        Length zeroFeet = new Length(0, Length.Unit.feet);
+        Length OneInch = new Length(0, Length.Unit.inch);
+
+        assertTrue(zeroFeet.equals(OneInch));
+    }
+
+    @Test
+    void givenOneFeetAndOneInch_WhenEquals_ThenShouldReturnNotEqual() {
         Length zeroFeet = new Length(0, Length.Unit.feet);
         Length OneInch = new Length(1, Length.Unit.inch);
 
         assertFalse(zeroFeet.equals(OneInch));
     }
 
+    @Test
+    void givenOneFeetAndTwelveInch_WhenEquals_ThenShouldReturnEqual() {
+        Length zeroFeet = new Length(1, Length.Unit.feet);
+        Length OneInch = new Length(12, Length.Unit.inch);
+
+        assertTrue(zeroFeet.equals(OneInch));
+    }
 
 }
