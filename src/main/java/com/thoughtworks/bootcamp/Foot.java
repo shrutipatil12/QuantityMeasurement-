@@ -1,10 +1,10 @@
 package com.thoughtworks.bootcamp;
 
-public class Quantity {
+public class Foot {
 
     final int value;
 
-    public Quantity(int value) {
+    public Foot(int value) {
 
         this.value = value;
     }
@@ -12,7 +12,7 @@ public class Quantity {
     @Override
     public boolean equals(Object object) {
 
-        return object instanceof Quantity && this.value == ((Quantity) object).value;
+        return object instanceof Foot && this.value == ((Foot) object).value;
     }
 
 }

@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 group 'com.thoughtworks.bootcamp'
 version '1.0-SNAPSHOT'
@@ -9,6 +10,17 @@ repositories {
 }
 test {
     useJUnitPlatform()
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.thoughtworks.bootcamp'
+            artifactId = 'QuantityMeasurement'
+            version '1.2'
+            from components.java
+        }
+
+    }
 }
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.6'
