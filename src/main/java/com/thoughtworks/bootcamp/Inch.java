@@ -10,7 +10,7 @@ public class Inch {
     @Override
     public boolean equals(Object object) {
 
-        return object instanceof Foot && this.value == ((Foot) object).value;
+        return object instanceof Inch && this.value == ((Inch) object).value;
     }
 
 }

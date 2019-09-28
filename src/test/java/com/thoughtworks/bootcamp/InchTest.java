@@ -2,6 +2,7 @@ package com.thoughtworks.bootcamp;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class InchTest {
@@ -14,4 +15,10 @@ public class InchTest {
         assertTrue(zeroInch.equals(anotherZeroInch));
     }
 
+    @Test
+    void givenZeroInchAndSomethingElse_WhenEquals_ThenShouldNotReturnNotEqual() {
+        Inch oneInch = new Inch(1);
+
+        assertFalse(oneInch.equals(new Object()));
+    }
 }
