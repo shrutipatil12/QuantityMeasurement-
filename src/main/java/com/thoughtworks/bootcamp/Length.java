@@ -23,16 +23,20 @@ public class Length {
         }
         if (object instanceof Length) {
             Length otherLength = (Length) object;
-            if (otherLength.value == TWELVE * value && otherLength.unit.equals(Unit.inch)) {
+            if (otherLength.value == convertToInch(value) && otherLength.unit.equals(Unit.inch)) {
                 return true;
             }
-            if (otherLength.unit.equals(Unit.feet) && convertToInch(otherLength) == value) {
+            if (value == convertToInch(otherLength) && otherLength.unit.equals(Unit.feet) ) {
                 return true;
             }
 
             return equalsIfUnitsAreSame(otherLength);
         }
         return false;
+    }
+
+    private int convertToInch(int other) {
+        return other * 12;
     }
 
     private int convertToInch(Length otherLength) {
