@@ -28,4 +28,12 @@ public class InchTest {
 
         assertFalse(oneInch.equals(null));
     }
+
+    @Test
+    void givenZeroInchAndOneInch_WhenEquals_ThenShouldReturnNotEqual() {
+        Inch zeroInch = new Inch(0);
+        Inch OneInch = new Inch(1);
+
+        assertFalse(zeroInch.equals(OneInch));
+    }
 }
