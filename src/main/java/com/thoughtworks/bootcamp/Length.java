@@ -26,10 +26,17 @@ public class Length {
             if (otherLength.value == TWELVE * value && otherLength.unit.equals(Unit.inch)) {
                 return true;
             }
+            if (otherLength.unit.equals(Unit.feet) && convertToInch(otherLength) == value) {
+                return true;
+            }
 
             return equalsIfUnitsAreSame(otherLength);
         }
         return false;
+    }
+
+    private int convertToInch(Length otherLength) {
+        return otherLength.value * 12;
     }
 
     private boolean equalsIfUnitsAreSame(Length otherLength) {
