@@ -22,11 +22,12 @@ public class Length {
             return true;
         }
         if (object instanceof Length) {
-            if (((Length) object).value == TWELVE * value) {
+            Length otherLength = (Length) object;
+            if (otherLength.value == TWELVE * value) {
                 return true;
             }
 
-            return this.value == ((Length) object).value && this.unit == ((Length) object).unit;
+            return this.value == otherLength.value && this.unit == otherLength.unit;
         }
         return false;
     }
