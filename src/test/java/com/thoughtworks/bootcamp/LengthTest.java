@@ -55,13 +55,13 @@ public class LengthTest {
     void givenZeroFeetAndZeroInch_WhenEquals_ThenShouldReturnEqual() {
 
         Length zeroFeet = new Length(0, Length.Unit.feet);
-        Length OneInch = new Length(0, Length.Unit.inch);
+        Length zeroInch = new Length(0, Length.Unit.inch);
 
-        assertTrue(zeroFeet.equals(OneInch));
+        assertTrue(zeroFeet.equals(zeroInch));
     }
 
     @Test
-    void givenOneFeetAndOneInch_WhenEquals_ThenShouldReturnNotEqual() {
+    void givenZeroFeetAndOneInch_WhenEquals_ThenShouldReturnNotEqual() {
         Length zeroFeet = new Length(0, Length.Unit.feet);
         Length OneInch = new Length(1, Length.Unit.inch);
 
@@ -70,10 +70,10 @@ public class LengthTest {
 
     @Test
     void givenOneFeetAndTwelveInch_WhenEquals_ThenShouldReturnEqual() {
-        Length zeroFeet = new Length(1, Length.Unit.feet);
-        Length OneInch = new Length(12, Length.Unit.inch);
+        Length oneFeet = new Length(1, Length.Unit.feet);
+        Length twelveInch = new Length(12, Length.Unit.inch);
 
-        assertTrue(zeroFeet.equals(OneInch));
+        assertTrue(oneFeet.equals(twelveInch));
     }
 
 }

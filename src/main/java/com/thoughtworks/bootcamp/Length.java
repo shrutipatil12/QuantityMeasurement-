@@ -5,6 +5,7 @@ public class Length {
 
     private int value;
     private Unit unit;
+    private static final int TWELVE = 12;
 
     enum Unit {
         feet, inch;
@@ -21,15 +22,11 @@ public class Length {
             return true;
         }
         if (object instanceof Length) {
-            if (this.value == 0 && ((Length) object).value == 0) {
-                return true;
-            }
-            if(this.value==1 && ((Length) object).value==12)
-            {
+            if (((Length) object).value == TWELVE * value) {
                 return true;
             }
 
-         return this.value == ((Length) object).value && this.unit == ((Length) object).unit;
+            return this.value == ((Length) object).value && this.unit == ((Length) object).unit;
         }
         return false;
     }
